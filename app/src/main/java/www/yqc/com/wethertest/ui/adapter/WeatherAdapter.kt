@@ -9,6 +9,8 @@ import www.yqc.com.wethertest.R
 
 /**
  * Created by Administrator on 2019/1/8.
+ *
+ * setAdapter之后才会走viewholder一系列方法
  */
 class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherHolder>() {
     lateinit var data: ArrayList<String>

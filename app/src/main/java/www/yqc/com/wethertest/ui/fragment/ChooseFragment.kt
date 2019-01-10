@@ -1,6 +1,7 @@
-package www.yqc.com.wethertest.ui
+package www.yqc.com.wethertest.ui.fragment
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -18,6 +19,7 @@ import www.yqc.com.wethertest.R
 import www.yqc.com.wethertest.db.City
 import www.yqc.com.wethertest.db.County
 import www.yqc.com.wethertest.db.Province
+import www.yqc.com.wethertest.ui.activity.WeatherActivity
 import www.yqc.com.wethertest.ui.adapter.WeatherAdapter
 import www.yqc.com.wethertest.util.DataUtil
 import www.yqc.com.wethertest.util.HttpUtil
@@ -71,6 +73,10 @@ class ChooseFragment : Fragment() {
                 } else if (currentLevel == LEVEL_CITY) {
                     selectedCity = cityList[position]
                     queryCounty()
+                } else {
+                    val intent = Intent(activity, WeatherActivity::class.java)
+                    intent.putExtra("address", dataList[position])
+                    activity!!.startActivity(intent)
                 }
             }
         }
